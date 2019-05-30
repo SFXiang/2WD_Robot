@@ -1,0 +1,21 @@
+# A UDEV rule maps the Arduino serial number to /dev/arduino
+
+port: /dev/arduino
+baud: 57600
+timeout: 0.5
+
+rate: 30
+
+sensorstate_rate: 10
+use_base_controller: False
+joint_update_rate: 10
+
+
+sensors: {
+  onboard_led: {pin: 13, type: Digital, direction: output, rate: 1}
+}
+
+# Joint name and pin assignment is an example only
+joints: {
+    head_pan_joint: {pin: 3, init_position: 0, init_speed: 60, neutral: 90, min_position: -90, max_position: 90, invert: False, continuous: False}
+}

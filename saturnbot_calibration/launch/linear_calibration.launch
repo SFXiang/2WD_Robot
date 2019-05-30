@@ -1,0 +1,8 @@
+<launch>
+  <!-- start the calibration node -->
+  <node name="linear_calibration" pkg="saturnbot_calibration" type="calibrate_linear.py" output="screen">
+    <param name="base_frame" value="base_footprint" />
+  </node>
+  <!-- start rqt_reconfigure -->
+  <node name="parameters_adjuster" pkg="rqt_reconfigure" type="rqt_reconfigure" output="screen"/>
+</launch>

@@ -1,0 +1,5 @@
+<launch>
+   <node name="saturnbot_controller" pkg="base_controller" type="arduino_node.py" output="screen">
+      <rosparam file="$(find base_controller)/config/for_calibration.yaml" command="load" />
+   </node>
+</launch>

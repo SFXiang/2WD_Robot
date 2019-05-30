@@ -1,0 +1,13 @@
+<launch>
+  <!-- start imu data filter -->
+  <node name="imu_filter" pkg="imu_filter_madgwick" type="imu_filter_node" output="screen">
+    <param name="use_mag" value="false" />
+    <param name="use_magnetic_field_msg" value="false" />
+    <param name="publish_tf" value="false" />
+  </node>
+
+  <!-- start odometry combine -->
+  <node name="odom_combine" pkg="saturnbot_bringup" type="odom_combine.py"  output="screen">
+    <rosparam file="$(find saturnbot_bringup)/config/odom_combine_params.yaml" command="load" />
+  </node>
+</launch>

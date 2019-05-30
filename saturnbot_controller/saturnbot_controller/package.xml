@@ -1,0 +1,20 @@
+<package>
+  <name>saturnbot_controller</name>
+  <version>0.2.0</version>
+  <description>
+    Metapackage for saturnbot_controller.
+  </description>
+  <author>Liu Chaoyang</author>
+  <maintainer email="chaoyanglius@gmail.com">Patrick Goebel</maintainer>
+  <license>BSD</license>
+  <url>http://ros.org/wiki/saturnbot_controller</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>saturnbot_msgs</run_depend>
+  <run_depend>base_controller</run_depend>
+
+  <export>
+   <metapackage/>
+  </export>
+</package>

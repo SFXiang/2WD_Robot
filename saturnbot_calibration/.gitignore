@@ -1,0 +1,9 @@
+# generated files by compiler #
+bin
+build
+lib
+
+# vim temporary files #
+*~
+*.swp
+*.swo

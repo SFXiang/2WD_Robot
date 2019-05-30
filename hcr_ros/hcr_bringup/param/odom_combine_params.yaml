@@ -1,0 +1,7 @@
+
+# For a robot that uses base_footprint, change base_frame to base_footprint
+base_frame: base_footprint
+
+# Using for calibrating imu data
+orient_calib_scale: 10.0
+orient_calib_offset: 0.0

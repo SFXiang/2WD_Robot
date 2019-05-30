@@ -1,0 +1,9 @@
+<launch>
+  <!-- start the calibration node -->
+  <node name="angular_calibration" pkg="saturnbot_calibration" type="calibrate_angular.py" output="screen">
+    <param name="speed" value="0.03" />
+    <param name="base_frame" value="base_footprint" />
+  </node>
+  <!-- start rqt_reconfigure -->
+  <node name="parameters_adjuster" pkg="rqt_reconfigure" type="rqt_reconfigure" output="screen"/>
+</launch>

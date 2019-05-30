@@ -1,0 +1,39 @@
+<launch>
+  <!-- start publishing sensor data and running base controller -->
+  <node name="saturnbot_controller" pkg="base_controller" type="arduino_node.py" output="screen" clear_params="true" required="true">
+      <rosparam file="$(find base_controller)/config/complex_odom_params.yaml" command="load" />
+      <!-- <remap from="saturnbot_controller/sensor/GY85" to="imu/data_raw" /> -->
+  </node>
+  <arg name="mag_used" default="false" />
+  <!-- start imu data filter -->
+  <include file="$(find saturnbot_bringup)/launch/includes/filters/madgwick_filter.launch"> 
+    <arg name="mag_used" value="$(arg mag_used)" />
+  </include>
+
+  <!--node name="imu_filter" pkg="imu_filter_madgwick" type="imu_filter_node" output="screen">
+    <param name="use_mag" value="$(arg mag_used)" />
+    <param name="use_magnetic_field_msg" value="true" />
+    <param name="publish_tf" value="false" />
+    <remap from="imu/data" to="imu_data" />
+    <remap from="imu/data_raw" to="saturnbot_controller/sensor/GY85" />
+
+  </node-->
+
+  <!-- start robot localization filter -->
+  <arg name="filter" default="ekf" />
+  <include file="$(find saturnbot_bringup)/launch/includes/filters/$(arg filter)_for2d.launch" />
+  <!-- <node pkg="robot_pose_ekf" type="robot_pose_ekf" name="robot_pose_ekf">
+    <param name="output_frame" value="odom"/>
+    <param name="freq" value="30.0"/>
+    <param name="sensor_timeout" value="1.0"/>
+    <param name="odom_used" value="true"/>
+    <param name="imu_used" value="true"/>
+    <param name="vo_used" value="false"/>
+    <param name="debug" value="false"/>
+    <param name="self_diagnose" value="false"/>
+    <remap from="robot_pose_ekf/odom_combined" to="input" />
+  </node> -->
+
+  <!-- start odometry converter -->
+  <!-- <node name="odom_converter" pkg="saturnbot_bringup" type="convert_odom.py"  output="screen" /> -->
+</launch>

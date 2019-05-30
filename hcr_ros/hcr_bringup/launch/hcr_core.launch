@@ -1,0 +1,32 @@
+<launch>
+  <!-- start publishing sensor data and running base controller -->
+  <node name="saturnbot_controller" pkg="base_controller" type="arduino_node.py" output="screen" clear_params="true" required="true">
+      <rosparam file="$(find hcr_bringup)/param/complex_odom_params.yaml" command="load" />
+      <!-- <remap from="hcr_controller/sensor/GY85" to="imu/data_raw" /> -->
+  
+  </node>
+  <arg name="mag_used" default="false" />
+  <!-- start imu node and imu data filter -->
+  <include file="$(find hcr_bringup)/launch/includes/filters/madgwick_filter.launch"> 
+    <arg name="mag_used" value="$(arg mag_used)" />
+  </include>
+
+
+  <!-- start robot localization filter -->
+  <arg name="filter" default="ekf" />
+  <include file="$(find hcr_bringup)/launch/includes/filters/$(arg filter)_for2d.launch" />
+  <!-- <node pkg="robot_pose_ekf" type="robot_pose_ekf" name="robot_pose_ekf">
+    <param name="output_frame" value="odom"/>
+    <param name="freq" value="30.0"/>
+    <param name="sensor_timeout" value="1.0"/>
+    <param name="odom_used" value="true"/>
+    <param name="imu_used" value="true"/>
+    <param name="vo_used" value="false"/>
+    <param name="debug" value="false"/>
+    <param name="self_diagnose" value="false"/>
+    <remap from="robot_pose_ekf/odom_combined" to="input" />
+  </node> -->
+
+  <!-- start odometry converter -->
+  <!-- <node name="odom_converter" pkg="hcr_bringup" type="convert_odom.py"  output="screen" /> -->
+</launch>
