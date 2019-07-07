@@ -1,0 +1,7 @@
+<launch>
+  <node pkg="keyboard_move" type="keyboard_move" name="keyboard_move" output="screen"/>
+  <param name="walk_vel"     value="2.0" />
+  <param name="run_vel"      value="2.0" />
+  <param name="yaw_rate"     value="2.0" />
+  <param name="yaw_rate_run" value="2.0" />
+</launch>

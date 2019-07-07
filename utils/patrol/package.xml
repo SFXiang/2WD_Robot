@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package>
+  <name>patrol</name>
+  <version>0.0.0</version>
+  <description>The mr_patrol package</description>
+ 
+
+  <license>BSD</license>
+  <author email="projects@oi2e.com">GU QIyang</author>
+  <maintainer email="guqiyang@pi2e.com">Qiyang Gu</maintainer>  
+  
+  
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>actionlib</build_depend>
+  <build_depend>roscpp</build_depend>
+  <run_depend>actionlib</run_depend>
+  <run_depend>roscpp</run_depend>
+
+</package>

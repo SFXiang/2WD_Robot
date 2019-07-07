@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package>
+  <name>pose_publisher</name>
+  <version>0.0.1</version>
+  <description>This package provides the current position and orientation of the robot in the map.</description>
+  
+  <maintainer email="zhi.yan@ai.univ-paris8.fr">Zhi Yan</maintainer>
+  
+  <license>BSD</license>
+  
+  <url type="website">http://www.ai.univ-paris8.fr/~yz</url>
+  
+  <buildtool_depend>catkin</buildtool_depend>
+  
+  <build_depend>roscpp</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>tf</build_depend>
+  
+  <run_depend>roscpp</run_depend>
+  <run_depend>geometry_msgs</run_depend>
+  <run_depend>tf</run_depend>
+</package>

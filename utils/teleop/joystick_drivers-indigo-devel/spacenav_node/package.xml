@@ -1,0 +1,31 @@
+<package>
+  <name>spacenav_node</name>
+  <version>1.10.1</version>
+  <license>BSD</license>
+  <description>
+    ROS interface to the 3Dconnexion SpaceNavigator 6DOF joystick.
+  </description>
+
+  <url type="website">http://www.ros.org/wiki/spacenav_node</url>
+  <url type="development">https://github.com/ros-drivers/joystick_drivers</url>
+  <url type="bugtracker">https://github.com/ros-drivers/joystick_drivers/issues</url>
+
+  <maintainer email="jbo@jhu.edu">Jonathan Bohren</maintainer>
+  <author>Stuart Glaser</author>
+  <author>Blaise Gassend</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  
+  <build_depend>roscpp</build_depend> 
+  <build_depend>geometry_msgs</build_depend> 
+  <build_depend>sensor_msgs</build_depend> 
+  <build_depend>libspnav-dev</build_depend> 
+  <build_depend>libx11-dev</build_depend>
+
+  <run_depend>roscpp</run_depend> 
+  <run_depend>geometry_msgs</run_depend> 
+  <run_depend>sensor_msgs</run_depend> 
+  <run_depend>libspnav-dev</run_depend> 
+  <run_depend>libx11-dev</run_depend> 
+  <run_depend>spacenavd</run_depend> 
+</package>
